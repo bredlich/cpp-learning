@@ -427,3 +427,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Compiled executables (we don't want to track these — we rebuild locally)
+*.exe
