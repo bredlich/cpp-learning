@@ -72,3 +72,28 @@ New things used to make it work:
 Next step is moving into memory and pointers, which is the first brand new C++ concept without a direct equivalent already known from R, MATLAB, or SQL.
 
 ## Part 7: Memory & Pointers
+
+A normal variable like age has both a name and a box in memory, on the
+stack. A pointer is itself a separate box, but instead of holding an
+ordinary value, it holds the address (the box number) of another
+variable. The & symbol gets the address of a variable, and the *
+symbol dereferences a pointer, meaning it follows the address back to
+get the actual value stored there.
+
+In today's example the pointer was pointing at a normal named
+variable, so it wasn't strictly necessary. The real usefulness comes
+later, when memory is requested on the heap using new. That memory
+has no name at all, so a pointer is the only way to ever reach it
+again. If the pointer holding that address is lost or overwritten,
+the memory becomes permanently unreachable but still reserved. This
+is what's known as a memory leak.
+
+Definitions:
+* Stack: automatic memory, used for normal named variables, created when a variable is declared and destroyed automatically when it goes out of scope
+* Heap: manual memory, requested explicitly while the program is running and only freed when explicitly deleted, reached only through a pointer
+
+Unnamed heap memory exists because the amount of memory needed is not
+always known until the program is running, and because it can outlive
+the function that created it, unlike stack memory. In practice,
+std::vector already handles this internally, which is why it can
+grow in size.
