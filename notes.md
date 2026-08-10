@@ -1,6 +1,6 @@
 # Learning Notes
 
-## Day 2: Hello World & Compilation
+## Part 2: Hello World & Compilation
 C++ is a compiled language, not interpreted like R. Before the program
 can run, the compiler (cl.exe) translates the .cpp source file into an
 .exe. This means errors get caught at compile time rather than only
@@ -11,7 +11,7 @@ Learned the basic structure every C++ program needs: #include to pull
 in libraries, int main() as the entry point, std::cout to print output,
 and return 0 to signal the program finished successfully.
 
-## Day 3: Variables & Static Typing
+## Part 3: Variables & Static Typing
 Unlike R, where a variable can hold any type and change freely, C++
 requires declaring a variable's type up front (int, double, char, bool,
 string), and that type is fixed for the variable's lifetime. This is
@@ -21,7 +21,7 @@ in R.
 
 Also noticed bool prints as 1/0 by default in C++, not true/false.
 
-## Day 4: Control Flow & Functions
+## Part 4: Control Flow & Functions
 Learned how loops and functions look in C++ compared to R. The for loop
 syntax is more explicit than R's `for (i in 1:5)` you spell out the
 start value, the condition to keep looping, and how to increment, all
@@ -40,7 +40,7 @@ missing semicolons) that were really all just one root cause - always
 check that braces are matched when the compiler gives a wall of
 unrelated-looking errors.
 
-## Day 5: Vectors, Strings & Input
+## Part 5: Vectors, Strings & Input
 std::vector<int> is the closest thing to an R vector, but unlike R,
 every element must be the same declared type, no mixing types in
 one vector. Declared with the type in angle brackets, e.g.
@@ -57,7 +57,7 @@ std::string supports concatenation with + and has a .length() method.
 std::cin >> reads a single word of input (stops at whitespace),
 different from reading a full line.
 
-## Day 6: Command Line Calculator Project
+## Part 6: Command Line Calculator Project
 
 Built a working calculator combining everything learned in days 3 to 5: variables, control flow, functions, and reading input.
 
@@ -70,3 +70,5 @@ New things used to make it work:
 * basic error handling inside divide, checking for division by zero before doing the calculation
 
 Next step is moving into memory and pointers, which is the first brand new C++ concept without a direct equivalent already known from R, MATLAB, or SQL.
+
+## Part 7: Memory & Pointers
