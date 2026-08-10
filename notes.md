@@ -56,3 +56,17 @@ cleaner way to loop over a vector without manually tracking an index.
 std::string supports concatenation with + and has a .length() method.
 std::cin >> reads a single word of input (stops at whitespace),
 different from reading a full line.
+
+## Day 6: Command Line Calculator Project
+
+Built a working calculator combining everything learned in days 3 to 5: variables, control flow, functions, and reading input.
+
+New things used to make it work:
+* while loop, used to keep the calculator running in a loop until the user chooses to quit
+* a bool flag (running) controlling when the while loop should stop
+* std::stod, which converts a string into a double, needed because input is read as a string first so it can be checked against "q"
+* continue, which skips the rest of the current loop iteration and jumps back to the while condition, used both for quitting and for handling an unknown operator
+* separate functions for each operation (add, subtract, multiply, divide), all sharing the same shape: two doubles in, one double out
+* basic error handling inside divide, checking for division by zero before doing the calculation
+
+Next step is moving into memory and pointers, which is the first brand new C++ concept without a direct equivalent already known from R, MATLAB, or SQL.
