@@ -107,3 +107,11 @@ grow in size.
 * Every function written so far this week used pass by value without it being named, this is the first time pass by reference has been used deliberately
 * Pass by value is used when the function should not affect the caller's variable, such as a calculation like add(a, b) where only the result is needed back, not a modified original
 * Pass by reference is used when the function genuinely needs to modify the original variable, such as addTenByReference, or when passing something large where copying it would be wasteful
+
+## Part 9: Dynamic Memory (new and delete)
+
+* new requests memory on the heap while the program is running, and returns a pointer to it, this is the first time memory has genuinely had no name of its own
+* delete frees heap memory once it's no longer needed, the heap does not clean up automatically like the stack does, forgetting this causes a memory leak
+* setting a pointer to nullptr after deleting it is good practice, since the pointer still holds the old address otherwise, even though that memory is no longer valid to use
+* new int[size] is the real payoff from named memory not being possible, size is only known once the program is running, such as from user input, so there is no way this could have been a normal named variable
+* deleting an array requires delete[], with square brackets, using plain delete on an array is a bug
