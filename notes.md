@@ -97,3 +97,13 @@ always known until the program is running, and because it can outlive
 the function that created it, unlike stack memory. In practice,
 std::vector already handles this internally, which is why it can
 grow in size.
+
+## Part 8: References, Pass By Value, Pass By Reference
+
+* A reference is a second name for an existing variable, declared with &, but unlike a pointer no * is needed to read or change its value, it behaves exactly like the original variable
+* A reference cannot be reassigned to refer to a different variable once set, unlike a pointer which can be pointed elsewhere
+* Pass by value copies the argument into the function, so changes made inside the function do not affect the original variable
+* Pass by reference, using & in the function parameter, lets the function work directly on the original variable, so changes made inside the function do affect the original
+* Every function written so far this week used pass by value without it being named, this is the first time pass by reference has been used deliberately
+* Pass by value is used when the function should not affect the caller's variable, such as a calculation like add(a, b) where only the result is needed back, not a modified original
+* Pass by reference is used when the function genuinely needs to modify the original variable, such as addTenByReference, or when passing something large where copying it would be wasteful
