@@ -115,3 +115,10 @@ grow in size.
 * setting a pointer to nullptr after deleting it is good practice, since the pointer still holds the old address otherwise, even though that memory is no longer valid to use
 * new int[size] is the real payoff from named memory not being possible, size is only known once the program is running, such as from user input, so there is no way this could have been a normal named variable
 * deleting an array requires delete[], with square brackets, using plain delete on an array is a bug
+
+### Mini Project: Number Guessing Game
+
+* std::rand() generates a random number, seeded with the current time using std::srand and std::time so the sequence is different each run rather than the same every time
+* the % (modulo) operator combined with + 1 restricts the random number to a specific range, here 1 to 100
+* the while loop keeps the game running until the guess matches the secret number, reusing the same "loop until a condition is met" pattern from the calculator project
+* this project mainly reinforced loops, conditionals, and variables from earlier days, rather than introducing new syntax, the new concept for today was dynamic memory above
