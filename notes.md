@@ -129,3 +129,12 @@ grow in size.
 * This is Continuous Integration, an automated check that code still compiles, rather than relying on manually running the compiler locally and trusting it stays working
 * A green checkmark next to a commit means the build succeeded, a red X would mean something in that push does not compile
 * Currently compiles each .cpp file separately since each one has its own main function, this will need updating once multi-file projects with CMake are introduced later
+
+## Part 11: Classes and Constructors
+
+* A class bundles data and the functions that operate on that data together into one thing, rather than having separate loose variables and functions like before
+* Member variables are the data every object created from the class will have, such as name and age on a Person
+* A constructor is a special function that runs automatically when an object is created, it shares the class's name and has no return type, not even void
+* public makes the members below it accessible from outside the class, this will be revisited in Part 11 where it becomes clear why that isn't always wanted
+* Each object created from a class has its own separate copy of the member variables, alice and bob were both built from the same Person blueprint but hold entirely different data
+* Member functions are called using dot notation on a specific object, such as alice.introduce(), rather than passing the object in as a parameter
