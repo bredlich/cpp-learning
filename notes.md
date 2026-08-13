@@ -122,3 +122,10 @@ grow in size.
 * the % (modulo) operator combined with + 1 restricts the random number to a specific range, here 1 to 100
 * the while loop keeps the game running until the guess matches the secret number, reusing the same "loop until a condition is met" pattern from the calculator project
 * this project mainly reinforced loops, conditionals, and variables from earlier days, rather than introducing new syntax, the new concept for today was dynamic memory above
+
+## Part 10 addition: GitHub Actions (CI/CD)
+
+* Added a GitHub Actions workflow (.github/workflows/build.yml) that automatically compiles every .cpp file in the repo every time a push is made to main
+* This is Continuous Integration, an automated check that code still compiles, rather than relying on manually running the compiler locally and trusting it stays working
+* A green checkmark next to a commit means the build succeeded, a red X would mean something in that push does not compile
+* Currently compiles each .cpp file separately since each one has its own main function, this will need updating once multi-file projects with CMake are introduced later
