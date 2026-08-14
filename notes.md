@@ -138,3 +138,10 @@ grow in size.
 * public makes the members below it accessible from outside the class, this will be revisited in Part 11 where it becomes clear why that isn't always wanted
 * Each object created from a class has its own separate copy of the member variables, alice and bob were both built from the same Person blueprint but hold entirely different data
 * Member functions are called using dot notation on a specific object, such as alice.introduce(), rather than passing the object in as a parameter
+
+## Part 12: Encapsulation
+
+* private stops name and age being accessed directly from outside the class, trying to do so is now a compile error
+* getters and setters, like getAge and setAge, are the only way to read or change private data from outside, and being functions they can include validation
+* the constructor now calls setAge instead of setting age directly, so the same validation applies even when the object is first created
+* encapsulation exists to stop a class's data from being set to an invalid state from outside
