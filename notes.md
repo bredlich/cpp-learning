@@ -145,3 +145,11 @@ grow in size.
 * getters and setters, like getAge and setAge, are the only way to read or change private data from outside, and being functions they can include validation
 * the constructor now calls setAge instead of setting age directly, so the same validation applies even when the object is first created
 * encapsulation exists to stop a class's data from being set to an invalid state from outside
+
+## Part 13: Structs vs Classes
+
+* a struct is public by default, a class is private by default, that is the only real difference
+* anyone can access a struct's members directly, since they are public by default, unless private is deliberately added inside it
+* struct or class is just the default you get if you write nothing, both can do everything the other can, constructors, functions, all of it
+* structs are useful for simple data with no rules to enforce, like a Point with just x and y, since writing getters and setters for it would just be extra typing for no benefit
+* using struct also signals intent, it tells anyone reading the code this is just data with no hidden behaviour, while class signals there is logic or validation worth being careful with
