@@ -153,3 +153,11 @@ grow in size.
 * struct or class is just the default you get if you write nothing, both can do everything the other can, constructors, functions, all of it
 * structs are useful for simple data with no rules to enforce, like a Point with just x and y, since writing getters and setters for it would just be extra typing for no benefit
 * using struct also signals intent, it tells anyone reading the code this is just data with no hidden behaviour, while class signals there is logic or validation worth being careful with
+
+## Part 14: Classes Interacting and Basic Inheritance
+
+* classes can reference and use each other, not just exist in isolation, Library's checkOut function takes a Book object as a parameter
+* checkOut used pass by reference, Book& book, so the change made inside the function to isCheckedOut actually affected the original object back in main, reusing the idea from Part 8
+* inheritance lets one class build on another, class Dog : public Animal means Dog inherits everything Animal has
+* the child class constructor can call the parent's constructor directly, using : Animal(dogName), so shared setup logic like setting name only needs to exist once
+* a child class gets full access to the parent's public members for free, bark could use name even though name was declared in Animal, not Dog
