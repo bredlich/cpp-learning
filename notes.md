@@ -161,3 +161,11 @@ grow in size.
 * inheritance lets one class build on another, class Dog : public Animal means Dog inherits everything Animal has
 * the child class constructor can call the parent's constructor directly, using : Animal(dogName), so shared setup logic like setting name only needs to exist once
 * a child class gets full access to the parent's public members for free, bark could use name even though name was declared in Animal, not Dog
+
+## Part 15: Library/Inventory System (OOP mini project)
+
+* Library holds a std::vector<Book>, a class managing a collection of other class objects, a very common real pattern
+* addBook takes a Book object by value and pushes it into the vector with push_back, reusing vector methods from Part 5
+* checkOut loops through the vector searching by title, using getTitle and getIsCheckedOut rather than reaching into Book's private members directly, encapsulation from Part 11 enforced even while one class is working with another
+* handled three cases correctly, checking out an available book, trying to check out an already checked out book, and searching for a book that does not exist
+* this project combined encapsulation, a class holding a vector of another class, and searching/looping, tying together everything from Parts 10 to 13 into one working program
