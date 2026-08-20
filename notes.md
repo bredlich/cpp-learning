@@ -169,3 +169,19 @@ grow in size.
 * checkOut loops through the vector searching by title, using getTitle and getIsCheckedOut rather than reaching into Book's private members directly, encapsulation from Part 11 enforced even while one class is working with another
 * handled three cases correctly, checking out an available book, trying to check out an already checked out book, and searching for a book that does not exist
 * this project combined encapsulation, a class holding a vector of another class, and searching/looping, tying together everything from Parts 10 to 13 into one working program
+
+## Part 15: Vector Sorting, Searching, and Iterators
+
+* std::sort sorts a vector in place using .begin() and .end() to mark the range, no need to write a sorting algorithm from scratch
+* std::greater<int>() as a second argument to sort flips it to descending order
+* std::find searches for a value and returns an iterator pointing to it, or .end() if not found, checked with it != numbers.end()
+* an iterator is a more general, safer version of a pointer, built specifically for walking through STL containers, * dereferences it the same way * dereferences a pointer from Part 7
+* auto lets the compiler work out the type itself, useful once types get long and verbose like std::vector<int>::iterator
+
+Needed because writing sorting and searching by hand every time would
+be repetitive and error prone, these are extremely common operations
+so the STL provides tested, efficient versions ready to use.
+
+Real life example: sorting a list of patients by enrollment date to
+find who joined first, or searching a large dataset for a specific
+patient ID rather than checking every record one by one manually.
