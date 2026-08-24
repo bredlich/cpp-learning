@@ -170,7 +170,7 @@ grow in size.
 * handled three cases correctly, checking out an available book, trying to check out an already checked out book, and searching for a book that does not exist
 * this project combined encapsulation, a class holding a vector of another class, and searching/looping, tying together everything from Parts 10 to 13 into one working program
 
-## Part 15: Vector Sorting, Searching, and Iterators
+## Part 16: Vector Sorting, Searching, and Iterators
 
 * std::sort sorts a vector in place using .begin() and .end() to mark the range, no need to write a sorting algorithm from scratch
 * std::greater<int>() as a second argument to sort flips it to descending order
@@ -185,3 +185,14 @@ so the STL provides tested, efficient versions ready to use.
 Real life example: sorting a list of patients by enrollment date to
 find who joined first, or searching a large dataset for a specific
 patient ID rather than checking every record one by one manually.
+
+## Part 17: std::map
+
+* std::map<int, std::string> stores key value pairs, declared with the key type then the value type
+* patients[101] = "name" adds a new entry or updates an existing one if the key already exists
+* .find() works the same way as on a vector but is genuinely fast on a map, not a slow check every element search
+* looping over a map with a range based for gives pairs, .first is the key and .second is the value
+* a map keeps entries sorted by key automatically, without being asked to
+* .erase(key) removes an entry by key
+* useful any time a fast lookup by ID is needed, like looking up a patient record by patient ID rather than searching through every record
+
