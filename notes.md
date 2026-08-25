@@ -196,3 +196,11 @@ patient ID rather than checking every record one by one manually.
 * .erase(key) removes an entry by key
 * useful any time a fast lookup by ID is needed, like looking up a patient record by patient ID rather than searching through every record
 
+## Part 18: File I/O
+
+* std::ofstream writes to a file, std::ifstream reads from one, both from <fstream>
+* always check .is_open() before using a file, it fails silently otherwise
+* file streams use << the same way std::cout does, just pointed at a file instead of the console
+* std::getline reads one line at a time and returns false once the file runs out, which is why it works as a while loop condition
+* always close a file when done, same idea as delete for heap memory
+* useful for reading and writing CSV data directly
