@@ -204,3 +204,11 @@ patient ID rather than checking every record one by one manually.
 * std::getline reads one line at a time and returns false once the file runs out, which is why it works as a while loop condition
 * always close a file when done, same idea as delete for heap memory
 * useful for reading and writing CSV data directly
+
+## Part 19: <random>
+
+* Previously we've used rand() for generating random numbers, however this gives you no control over the distribution
+* <random> lets you generate numbers from specific statistical distributions
+* this is something we'll need when going onto model Brownian motion, monte carlo integration methods, or stochastic processes generally, for example the spread of disease in epidemiology
+* a seed is the starting point a random number generator uses to produce its sequence, the same seed always produces the same sequence, std::random_device gets a genuinely random seed from the OS so the sequence differs each run
+* std::mt19937 is the engine, the actual source of randomness once seeded, distributions like uniform_int_distribution or normal_distribution are applied on top of it
