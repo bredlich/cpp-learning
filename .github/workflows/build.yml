@@ -17,3 +17,12 @@ jobs:
             echo "Compiling $file"
             g++ -std=c++17 -Wall -c "$file" -o "${file%.cpp}.o"
           done
+
+ build-cmake-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure and build cmake_demo
+        run: |
+          cmake -S cmake_demo -B cmake_demo/build
+          cmake --build cmake_demo/build
