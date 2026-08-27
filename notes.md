@@ -218,3 +218,12 @@ patient ID rather than checking every record one by one manually.
 * template<typename T> lets one function work for multiple types, instead of writing a separate near identical function for int, double, string, etc
 * T is just a placeholder name for whichever type is actually used, the compiler works this out automatically and generates the right version behind the scenes at compile time, costing nothing at runtime
 * needed to actually understand syntax already being used since Part 5, std::vector<int> and std::normal_distribution<double> are themselves templates, <int> and <double> are just telling the compiler which type to generate
+
+## Part 21: CMake and Updating CI
+
+* CMake manages compiling multiple .cpp files together into one program, needed since real projects won't stay single-file like everything up to now
+* a header file (.h) declares what exists, a .cpp file defines it, main.cpp only needs to see the header's declarations, not the other file's actual code
+* CMakeLists.txt tells CMake which files to build into which executable, using add_executable
+* Visual Studio can use CMakeLists.txt directly, enabling the actual green Run/Debug button and debugger for the first time, rather than manually compiling via the command line
+* added a second job to the GitHub Actions workflow specifically to build the CMake project, alongside the existing job that compiles loose files, both now run and pass on every push
+* YAML is strict about indentation.
