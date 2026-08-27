@@ -212,3 +212,9 @@ patient ID rather than checking every record one by one manually.
 * this is something we'll need when going onto model Brownian motion, monte carlo integration methods, or stochastic processes generally, for example the spread of disease in epidemiology
 * a seed is the starting point a random number generator uses to produce its sequence, the same seed always produces the same sequence, std::random_device gets a genuinely random seed from the OS so the sequence differs each run
 * std::mt19937 is the engine, the actual source of randomness once seeded, distributions like uniform_int_distribution or normal_distribution are applied on top of it
+
+## Part 20: Function Templates
+
+* template<typename T> lets one function work for multiple types, instead of writing a separate near identical function for int, double, string, etc
+* T is just a placeholder name for whichever type is actually used, the compiler works this out automatically and generates the right version behind the scenes at compile time, costing nothing at runtime
+* needed to actually understand syntax already being used since Part 5, std::vector<int> and std::normal_distribution<double> are themselves templates, <int> and <double> are just telling the compiler which type to generate
