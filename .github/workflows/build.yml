@@ -18,7 +18,7 @@ jobs:
             g++ -std=c++17 -Wall -c "$file" -o "${file%.cpp}.o"
           done
 
- build-cmake-demo:
+  build-cmake-demo:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
