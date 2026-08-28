@@ -227,3 +227,15 @@ patient ID rather than checking every record one by one manually.
 * Visual Studio can use CMakeLists.txt directly, enabling the actual green Run/Debug button and debugger for the first time, rather than manually compiling via the command line
 * added a second job to the GitHub Actions workflow specifically to build the CMake project, alongside the existing job that compiles loose files, both now run and pass on every push
 * YAML is strict about indentation.
+
+## Part 22: CSV Analyser Project
+
+* std::accumulate, from <numeric>, sums a range starting from a given value
+* std::min_element and std::max_element return iterators, not values, so * is needed to dereference them
+* combined file reading, stod, and vectors with these new stat functions to summarise scores.csv
+
+### Debugging
+* accidentally ran cl csv.analyser.cpp instead of csv_analyser.cpp, a dot instead of underscore
+* this created a stray analyser.cpp file containing linker error text instead of real code, which got pushed
+* CI caught it, build failed on push, details showed the real error
+* deleted the stray file, pushed again, back to passing
