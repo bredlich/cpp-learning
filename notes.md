@@ -239,3 +239,11 @@ patient ID rather than checking every record one by one manually.
 * this created a stray analyser.cpp file containing linker error text instead of real code, which got pushed
 * CI caught it, build failed on push, details showed the real error
 * deleted the stray file, pushed again, back to passing
+
+## Part 22: Linear Algebra Basics
+
+* dot product multiplies corresponding elements and sums the results
+* matrix-vector multiply treats a matrix as a vector of vectors, each row, and each output value is that row's dot product with the vector
+* const std::vector<double>& passes a vector by reference without copying it, while const stops the function from being able to modify it, the standard way to pass containers into a function in real C++
+* std::vector<std::vector<double>> is the plain way to represent a matrix before something like Eigen is introduced later
+* verified both results by hand, dot product gave 32, matrix multiply gave [13, 9].
