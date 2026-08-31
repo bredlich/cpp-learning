@@ -240,10 +240,28 @@ patient ID rather than checking every record one by one manually.
 * CI caught it, build failed on push, details showed the real error
 * deleted the stray file, pushed again, back to passing
 
-## Part 22: Linear Algebra Basics
+## Part 23: Linear Algebra Basics
 
 * dot product multiplies corresponding elements and sums the results
 * matrix-vector multiply treats a matrix as a vector of vectors, each row, and each output value is that row's dot product with the vector
 * const std::vector<double>& passes a vector by reference without copying it, while const stops the function from being able to modify it, the standard way to pass containers into a function in real C++
 * std::vector<std::vector<double>> is the plain way to represent a matrix before something like Eigen is introduced later
 * verified both results by hand, dot product gave 32, matrix multiply gave [13, 9].
+
+## Part 24: Numerical Integration (Trapezoidal Rule)
+
+* approximates the area under a curve by splitting it into thin trapezoids and summing their areas, instead of solving the integral analytically
+* general formula for the trapezoidal rule over n intervals of width h:
+
+$$\int_a^b f(x)\,dx \approx h \left[ \frac{f(a) + f(b)}{2} + \sum_{i=1}^{n-1} f(x_i) \right]$$
+
+where $h = \frac{b-a}{n}$ and $x_i = a + i h$
+
+* the first and last points count as half, every point in between counts as full, that's why the code adds `0.5 * (f(a) + f(b))` before looping through the rest
+* std::function<double(double)> lets a function accept any function taking and returning a double, rather than hardcoding one formula
+* lambdas, like [](double x) { return x * x; }, define a small anonymous function inline, useful for passing a quick function without writing a separate named one
+* more intervals (n) means smaller trapezoids and a more accurate approximation, at the cost of more computation, shown directly by the 10-interval result being noticeably less accurate than the 1000-interval one
+
+### Debugging
+* M_PI is not standard C++, it's a compiler extension, and adding #define _USE_MATH_DEFINES before <cmath> still didn't work
+* fixed by just hardcoding PI as a constant instead, simpler and more portable across compilers
