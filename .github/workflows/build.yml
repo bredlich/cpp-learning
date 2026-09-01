@@ -11,11 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install Eigen
+        run: sudo apt-get update && sudo apt-get install -y libeigen3-dev
       - name: Compile all .cpp files
         run: |
           for file in *.cpp; do
             echo "Compiling $file"
-            g++ -std=c++17 -Wall -c "$file" -o "${file%.cpp}.o"
+            g++ -std=c++17 -Wall -I /usr/include/eigen3 -c "$file" -o "${file%.cpp}.o"
           done
 
   build-cmake-demo:
