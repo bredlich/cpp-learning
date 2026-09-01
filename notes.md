@@ -273,3 +273,19 @@ where $h = \frac{b-a}{n}$ and $x_i = a + i h$
 * this is the pattern I'll use in future projects, C++ for the heavy computation, R for the plotting and analysis
 * tested the full pipeline end to end, C++ generated a sine wave, wrote it to sine_wave.csv, and R plotted it correctly, confirming the whole chain works
 * saved the R script itself (plot_sine_wave.R) alongside the C++ file and CSV, so the example is fully reproducible
+
+## Part 26: Eigen Library Setup 
+
+* Eigen is a header-only C++ library for linear algebra, no separate compiled library needed, just point the compiler at the folder containing the Eigen headers
+* Eigen::Matrix3d and Eigen::Vector3d replace the vector<vector<double>> approach from Part 23, with * doing actual matrix-vector multiplication in one line instead of a manual loop
+* .inverse() computes a matrix inverse, something genuinely painful to implement by hand, exactly why a library like this exists
+* checked the matrix-vector multiply result by hand against Part 23's logic, matched correctly
+
+### Debugging: Eigen alignment failure
+* first compile ran fine but eigen_test.exe crashed with an assertion failure about scalar alignment
+* caused by compiling in 32-bit mode (x86), Eigen's fixed-size types need specific memory alignment that 32-bit builds don't guarantee
+* fixed by switching to the x64 Native Tools Command Prompt instead of the regular Developer Command Prompt, compiling for 64-bit removes the issue entirely
+
+### Debugging: CI failure after adding Eigen
+* pushing eigen_test.cpp broke the GitHub Actions build check, since the CI runner has no knowledge of Eigen or where it's installed locally
+* fixed by adding an install step to build.yml (sudo apt-get install libeigen3-dev) and adding -I /usr/include/eigen3 to the compile command
