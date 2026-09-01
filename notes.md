@@ -265,3 +265,11 @@ where $h = \frac{b-a}{n}$ and $x_i = a + i h$
 ### Debugging
 * M_PI is not standard C++, it's a compiler extension, and adding #define _USE_MATH_DEFINES before <cmath> still didn't work
 * fixed by just hardcoding PI as a constant instead, simpler and more portable across compilers
+
+## Part 25: Plotting Workflow (CSV Export + R)
+
+* C++ has no easy native plotting, so the standard pattern is C++ computes and writes a CSV with clear column headers, then R or Python reads it and plots it
+* std::ofstream writing a header row first, then x,y pairs per line, matches a normal CSV structure ready for read.csv in R
+* this is the pattern I'll use in future projects, C++ for the heavy computation, R for the plotting and analysis
+* tested the full pipeline end to end, C++ generated a sine wave, wrote it to sine_wave.csv, and R plotted it correctly, confirming the whole chain works
+* saved the R script itself (plot_sine_wave.R) alongside the C++ file and CSV, so the example is fully reproducible
